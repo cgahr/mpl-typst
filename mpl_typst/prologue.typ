@@ -9,11 +9,12 @@
 
 #import "@preview/based:0.1.0": base64
 
+#let mathdefault(it) = it
 #let draw-text(dx: 0pt, dy: 0pt, size: 10pt, alignment: center + horizon, baseline: false, angle: 0deg, body) = context {
   // In order to align a text properly, we need to configure bounding box of a
   // text.
   let top-edge = "cap-height"
-  let bot-edge = "bounds"
+  let bot-edge = "baseline"
   let valign = alignment.y;
   if baseline and valign == bottom {
     bot-edge = "baseline"

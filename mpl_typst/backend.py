@@ -146,6 +146,13 @@ class TypstRenderer(RendererBase):
                                transform):
         pass
 
+    def option_scale_image(self):
+        # docstring inherited
+        return True
+
+    def get_image_magnification(self):
+        return self.image_dpi / 72.0
+
     def draw_image(self, gc: GraphicsContextBase, x: float, y: float,
                    im: ArrayLike, transform: Affine2DBase | None = None):
         # This methods closely follows the SVG backend

@@ -72,12 +72,17 @@ class Scalar(Node):
                 f'String literals cannot have a unit: {self.unit}.')
 
     def to_string(self, writer: Writer):
-        if self.unit:
-            writer.write(f'{self.value}{self.unit}')
-        elif isinstance(self.value, str):
-            writer.write(f'"{self.value}"')
+        if isinstance(self.value, str):
+            to_write = f'"{self.value}"'
+        elif self.unit in {"cm", "mm", "in"}:
+            to_write = f"{self.value:.4f}"
         else:
-            writer.write(f'{self.value}')
+            to_write = f"{self.value}"
+            
+        if self.unit:
+            to_write += self.unit
+
+        writer.write(to_write)
 
 
 @dataclass
