@@ -13,7 +13,7 @@
   // In order to align a text properly, we need to configure bounding box of a
   // text.
   let top-edge = "cap-height"
-  let bot-edge = "bounds"
+  let bot-edge = "baseline"
   let valign = alignment.y;
   if baseline and valign == bottom {
     bot-edge = "baseline"

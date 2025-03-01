@@ -165,7 +165,7 @@ class TypstRenderer(RendererBase):
         img = ImageOps.flip(Image.fromarray(im))
 
         if self.config.detached_images:
-            if self.basename is None:
+            if self.path is None:
                 raise ValueError(
                     'Cannot save raster image files to filesystem since '
                     'target directory is not specified.')
